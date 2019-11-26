@@ -1,10 +1,10 @@
- /* Load the HTTP library */
- var http = require("http");
+console.log('start');
 
- /* Create an HTTP server to handle responses */
+var http = require('http')
+var os = require('os')
 
- http.createServer(function(request, response) {
-   response.writeHead(200, {"Content-Type": "text/plain"});
-   response.write("Hello World");
-   response.end();
- }).listen(8888);
+http.createServer(function (req, res) {
+    res.writeHead(200, {'Content-Type': 'text/plain'})
+    const host = os.hostname()
+    res.end(`Hello World ${host} \n`)
+}).listen(8989)
